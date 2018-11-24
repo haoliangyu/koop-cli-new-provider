@@ -2,25 +2,24 @@
   "name": "koop-provider-sample",
   "version": "1.0.0",
   "description": "A sample provider for koop",
-  "main": "index.js",
+  "main": "src/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "start": "node server.js",
-    "test": "standard && tape test/*.js | tap-spec",
-    "lamda-create": "claudia create --name koop-provider-geojson --handler lambda.handler --deploy-proxy-api --region us-east-1 --set-env KOOP_PORT=80 --set-env DEPLOY=export",
-    "lambda-update": "claudia update"
+    "test": "standard && tape test/*.js | tap-spec"
   },
   "dependencies": {
-    "config": "^2.0.0",
+    "dotenv": "^6.1.0",
     "koop": "^3.10.1",
-    "request": "^2.79.0"
+    "node-fetch": "^2.3.0"
   },
   "author": "Daniel Fenton",
   "license": "Apache-2.0",
   "devDependencies": {
-    "nock": "^10.0.0",
+    "nock": "^10.0.2",
+    "proxyquire": "^2.1.0",
     "standard": "^10.0.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.6.3"
