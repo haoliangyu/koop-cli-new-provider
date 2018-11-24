@@ -5,8 +5,8 @@
 
   Documentation: http://koopjs.github.io/docs/specs/provider/
 */
-const request = require('request').defaults({gzip: true, json: true})
-const config = require('config')
+
+const fetch = require('node-fetch')
 
 function Model (koop) {}
 
@@ -22,28 +22,32 @@ function Model (koop) {}
 // req.params.layer
 // req.params.method
 Model.prototype.getData = function (req, callback) {
-  const key = config.trimet.key
+  const key = process.env.API_KEY
 
   // Call the remote API with our developer key
-  request(`https://developer.trimet.org/ws/v2/vehicles/onRouteOnly/false/appid/${key}`, (err, res, body) => {
-    if (err) return callback(err)
+  fetch(`https://developer.trimet.org/ws/v2/vehicles/onRouteOnly/false/appid/${key}`)
+    .then((res) => res.json())
+    .then((res) => {
+      // translate the response into geojson
+      const geojson = translate(res)
 
-    // translate the response into geojson
-    const geojson = translate(body)
+      // Optional: cache data for 10 seconds at a time by setting the ttl or "Time to Live"
+      // geojson.ttl = 10
 
-    // Optional: cache data for 10 seconds at a time by setting the ttl or "Time to Live"
-    // geojson.ttl = 10
+      // Optional: Service metadata and geometry type
+      // geojson.metadata = {
+      //   title: 'Koop Sample Provider',
+      //   description: `Generated from ${url}`,
+      //   geometryType: 'Polygon' // Default is automatic detection in Koop
+      // }
 
-    // Optional: Service metadata and geometry type
-    // geojson.metadata = {
-    //   title: 'Koop Sample Provider',
-    //   description: `Generated from ${url}`,
-    //   geometryType: 'Polygon' // Default is automatic detection in Koop
-    // }
-
-    // hand off the data to Koop
-    callback(null, geojson)
-  })
+      // hand off the data to Koop
+      callback(null, geojson)
+    })
+    .catch((err) => {
+      console.log(err)
+      callback(err)
+    })
 }
 
 function translate (input) {
