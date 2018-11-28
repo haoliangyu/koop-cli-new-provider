@@ -11,8 +11,8 @@ const model = new Model()
 const nock = require('nock')
 
 test('should properly fetch from the API and translate features', t => {
-  nock('https://developer.trimet.org')
-    .get((url) => url.startsWith('/ws/v2/vehicles/onRouteOnly/false/appid'))
+  nock('https://example.com')
+    .get((url) => url.startsWith('/data'))
     .reply(200, require('./fixtures/input.json'))
 
   model.getData({}, (err, geojson) => {

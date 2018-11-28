@@ -1,13 +1,12 @@
 {
   "name": "koop-provider-sample",
-  "version": "1.0.0",
-  "description": "A sample provider for koop",
+  "version": "3.0.0",
+  "description": "An opinionated provider template for koop-cli",
   "main": "src/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "node server.js",
     "test": "standard && tape test/*.js | tap-spec"
   },
   "dependencies": {
@@ -15,11 +14,10 @@
     "koop": "^3.10.1",
     "node-fetch": "^2.3.0"
   },
-  "author": "Daniel Fenton",
+  "author": "Haoliang Yu",
   "license": "Apache-2.0",
   "devDependencies": {
     "nock": "^10.0.2",
-    "proxyquire": "^2.1.0",
     "standard": "^10.0.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.6.3"

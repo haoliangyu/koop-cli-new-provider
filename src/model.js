@@ -22,10 +22,12 @@ function Model (koop) {}
 // req.params.layer
 // req.params.method
 Model.prototype.getData = function (req, callback) {
+  // TODO: add the actual url and api key
   const key = process.env.API_KEY
+  const url = `https://example.com/data?api_key=${key}`
 
   // Call the remote API with our developer key
-  fetch(`https://developer.trimet.org/ws/v2/vehicles/onRouteOnly/false/appid/${key}`)
+  fetch(url)
     .then((res) => res.json())
     .then((res) => {
       // translate the response into geojson
