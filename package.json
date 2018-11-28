@@ -1,5 +1,5 @@
 {
-  "name": "koop-provider-sample",
+  "name": "koop-cli-new-provider",
   "version": "3.0.0",
   "description": "An opinionated provider template for koop-cli",
   "main": "src/index.js",
@@ -24,15 +24,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koopjs/koop-provider-sample.git"
+    "url": "git+https://github.com/haoliangyu/koop-cli-new-provider.git"
   },
   "bugs": {
-    "url": "https://github.com/koopjs/koop-provider-sample/issues"
+    "url": "https://github.com/haoliangyu/koop-cli-new-provider/issues"
   },
-  "homepage": "https://github.com/koopjs/koop-provider-sample",
+  "homepage": "https://github.com/haoliangyu/koop-cli-new-provider",
   "keywords": [
     "koop",
+    "cli",
     "provider",
-    "sample"
+    "template"
   ]
 }
