@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haoliangyu/koop-cli-new-provider.git"
+    "url": "git+https://github.com:haoliangyu/koop-cli-new-provider.git"
   },
   "bugs": {
     "url": "https://github.com/haoliangyu/koop-cli-new-provider/issues"
