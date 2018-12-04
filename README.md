@@ -8,6 +8,6 @@ This is a fork of [koop-provider-example](https://github.com/koopjs/koop-provide
 
   This template drops optional files from the original provider example and the developer should start with the simplest provider template.
 
-* Configurable
+* No configuration
 
-  This template uses environment variables for configuration. It means the koop application can configurate its providers by using specific environment variables.
+  This template requires no configuration and it is up to the developer to choose how to configurate it.
